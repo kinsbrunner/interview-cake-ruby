@@ -23,7 +23,7 @@ class BinaryTreeNode
     
     # we'll treat this array as a stack that will store pairs [node, depth]
     nodes = []
-    node, depth = nodes.push([self, 0])
+    nodes.push([self, 0])
     
     while !nodes.empty?
       # pop a node and its depth from the top of our stack
