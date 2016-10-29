@@ -21,4 +21,24 @@ class LinkedListNode
       raise "Can't delete the last node with this method!"
     end
   end
+  
+  def contains_cycle()
+    # start both runners at the beginning
+    slow_runner = self
+    fast_runner = self
+
+    # until we hit the end of the list
+    while fast_runner != nil && fast_runner.next != nil
+      slow_runner = slow_runner.next
+      fast_runner = fast_runner.next.next
+
+      # case: fast_runner is about to "lap" slow_runner
+      if fast_runner == slow_runner
+        return true
+      end
+    end
+
+    # case: fast_runner hit the end of the list
+    return false
+  end
 end
