@@ -41,4 +41,45 @@ class LinkedListNode
     # case: fast_runner hit the end of the list
     return false
   end
+
+  def reverse()
+    current = self
+    previous = nil
+    next_node = nil
+
+    # until we have 'fallen off' the end of the list
+    while current
+        # copy a pointer to the next element
+        # before we overwrite current.next
+        next_node = current.next
+
+        # reverse the 'next' pointer
+        current.next = previous
+
+        # step forward in the list
+        previous = current
+        current = next_node
+    end
+
+    previous
+  end
+  
+  def print_list()
+    current = self
+    while current
+      puts current.value
+      current = current.next
+    end
+  end
+    
 end
+
+=begin
+head = LinkedListNode.new('A')
+b = LinkedListNode.new('B')
+c = LinkedListNode.new('C')
+d = LinkedListNode.new('D')
+head.next = b
+b.next = c
+c.next = d
+=end
