@@ -29,5 +29,30 @@ RSpec.describe LinkedListNode, type: :model do
     it "should recognize there is NO cycle" do
       expect(head.contains_cycle).to eq false
     end
-  end 
+  end
+
+  describe "#kth_to_last_node method" do 
+    let(:head) { 
+      head = LinkedListNode.new('A')
+      b = LinkedListNode.new('B')
+      c = LinkedListNode.new('C')
+      d = LinkedListNode.new('D')
+      head.next = b
+      b.next = c
+      c.next = d
+      return head
+    }
+
+    it "should return B" do
+      expect(head.kth_to_last_node(3).value).to eq 'B'
+    end
+
+    it "should return A" do
+      expect(head.kth_to_last_node(4).value).to eq 'A'
+    end
+
+    it "Exception should be triggered" do
+      expect{head.kth_to_last_node(0)}.to raise_error(ArgumentError)
+    end
+  end
 end
