@@ -32,4 +32,13 @@ RSpec.describe String, type: :model do
       expect(string.has_palindrome_permutation('abcdcd')).to eq false
     end
   end
+  
+  describe "#get_permutations_rec method" do 
+    let(:string){ String.new }
+
+    it "should return expected answer" do
+      results = Set.new ["cba", "bca", "bac", "cab", "acb", "abc"]
+      expect(string.get_permutations_rec('abc')).to eq results
+    end
+  end    
 end
